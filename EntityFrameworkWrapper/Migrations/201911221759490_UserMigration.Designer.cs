@@ -13,7 +13,7 @@ namespace EntityFrameworkWrapper.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201911221628535_UserMigration"; }
+            get { return "201911221759490_UserMigration"; }
         }
         
         string IMigrationMetadata.Source

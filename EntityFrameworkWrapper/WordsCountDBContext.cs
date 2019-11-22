@@ -7,8 +7,8 @@ using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace EntityFrameworkWrapper
 {
-        public class WordsCountDBContextusing : DbContext
-        {
+    public class WordsCountDBContextusing : DbContext
+    {
         //public WordsCountDBContext() : base(@"Server=KIYVMANAGERSURF\ARTSYLPRODUCTS10;Integrated security = true;database=WalletSimulator")
 
         public WordsCountDBContextusing() : base("DB")
@@ -19,11 +19,11 @@ namespace EntityFrameworkWrapper
 
         public DbSet<User> Users { get; set; }
 
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
-            {
-                modelBuilder.Configurations.Add(new UserConfiguration());
-                modelBuilder.Configurations.Add(new RequestConfiguration());
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new RequestConfiguration());
         }
-        }
-    
+    }
+
 }

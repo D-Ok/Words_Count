@@ -15,23 +15,32 @@ using System.Windows;
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-// Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a type in this assembly from
-// COM, set the ComVisible attribute to true on that type.
+
+// Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
+// для компонентов COM. Если необходимо обратиться к типу в этой сборке через
+// из модели COM, установите атрибут ComVisible для этого типа в значение true.
 [assembly: ComVisible(false)]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e096a4b3-7c55-4288-96ad-2b6900907f99")]
+//Чтобы начать создание локализуемых приложений, задайте
+//<UICulture>CultureYouAreCodingWith</UICulture> в файле .csproj
+//в <PropertyGroup>. Например, при использовании английского (США)
+//в своих исходных файлах установите <UICulture> в en-US.  Затем отмените преобразование в комментарий
+//атрибута NeutralResourceLanguage ниже.  Обновите "en-US" в
+//строка внизу для обеспечения соответствия настройки UICulture в файле проекта.
 
-// Version information for an assembly consists of the following four values:
+//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
+
+
+
+// Сведения о версии для сборки включают четыре следующих значения:
 //
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
+//      Основной номер версии
+//      Дополнительный номер версии
+//      Номер сборки
+//      Номер редакции
 //
-// You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
+// Можно задать все значения или принять номера сборки и редакции по умолчанию 
+// используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

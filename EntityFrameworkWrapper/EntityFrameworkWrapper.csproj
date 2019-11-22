@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6F6D951-F862-423D-9EDF-AC0A02475647}</ProjectGuid>
+    <ProjectGuid>{B948F7E2-6C3A-4E81-B51F-691CC9FBF653}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>EntityFrameworkWrapper</RootNamespace>
     <AssemblyName>EntityFrameworkWrapper</AssemblyName>
@@ -39,10 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -53,24 +53,31 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201911221628535_UserMigration.cs" />
-    <Compile Include="Migrations\201911221628535_UserMigration.designer.cs">
-      <DependentUpon>201911221628535_UserMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201911221759490_UserMigration.cs" />
+    <Compile Include="Migrations\201911221759490_UserMigration.Designer.cs">
+      <DependentUpon>201911221759490_UserMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911221801588_RequestMigration.cs" />
+    <Compile Include="Migrations\201911221801588_RequestMigration.designer.cs">
+      <DependentUpon>201911221801588_RequestMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="ModelConfigurations\RequestConfiguration.cs" />
+    <Compile Include="ModelConfigurations\RequestConfigration.cs" />
     <Compile Include="ModelConfigurations\UserConfiguration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WordsCountDBContext.cs" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBModels\DBModels.csproj">
@@ -79,8 +86,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911221628535_UserMigration.resx">
-      <DependentUpon>201911221628535_UserMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911221759490_UserMigration.resx">
+      <DependentUpon>201911221759490_UserMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911221801588_RequestMigration.resx">
+      <DependentUpon>201911221801588_RequestMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -88,8 +98,8 @@
     <PropertyGroup>
       <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\WordsCountSkyrtaOliinyk\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
 </Project>
