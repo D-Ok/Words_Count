@@ -7,6 +7,7 @@
     {
         public override void Up()
         {
+            
             CreateTable(
                 "dbo.Users",
                 c => new
@@ -16,6 +17,7 @@
                         LastName = c.String(nullable: false),
                         Email = c.String(nullable: false, maxLength: 256),
                         Password = c.String(nullable: false),
+                        DateOfEnter = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Guid)
                 .Index(t => t.Email, unique: true);

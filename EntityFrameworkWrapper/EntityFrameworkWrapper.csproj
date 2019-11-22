@@ -58,13 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201911221759490_UserMigration.cs" />
-    <Compile Include="Migrations\201911221759490_UserMigration.Designer.cs">
-      <DependentUpon>201911221759490_UserMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201911222154364_UserMigration.cs" />
+    <Compile Include="Migrations\201911222154364_UserMigration.designer.cs">
+      <DependentUpon>201911222154364_UserMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911221801588_RequestMigration.cs" />
-    <Compile Include="Migrations\201911221801588_RequestMigration.designer.cs">
-      <DependentUpon>201911221801588_RequestMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201911222157152_RequestMigration.cs" />
+    <Compile Include="Migrations\201911222157152_RequestMigration.designer.cs">
+      <DependentUpon>201911222157152_RequestMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\RequestConfigration.cs" />
@@ -86,11 +86,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911221759490_UserMigration.resx">
-      <DependentUpon>201911221759490_UserMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911222154364_UserMigration.resx">
+      <DependentUpon>201911222154364_UserMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911221801588_RequestMigration.resx">
-      <DependentUpon>201911221801588_RequestMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911222157152_RequestMigration.resx">
+      <DependentUpon>201911222157152_RequestMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

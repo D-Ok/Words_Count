@@ -20,6 +20,8 @@ namespace WordsCountSkyrtaOliinyk.DBModels
         private string _password;
         [DataMember]
         private List<Request> _requests;
+        [DataMember]
+        private DateTime _dateOfEnter;
         #endregion
 
         #region Properties
@@ -82,6 +84,18 @@ namespace WordsCountSkyrtaOliinyk.DBModels
             get => _requests;
             set => _requests = value;
         }
+
+        public DateTime DateOfEnter
+        {
+            get
+            {
+                return _dateOfEnter;
+            }
+            private set
+            {
+                _dateOfEnter = value;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -92,6 +106,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
             _firstName = firstName;
             _lastName = lastName;
             _email = email;
+            _dateOfEnter = DateTime.Today;
             SetPassword(password);
         }
 
