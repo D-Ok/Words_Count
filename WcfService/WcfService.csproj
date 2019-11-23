@@ -65,6 +65,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="WordsCounter.svc.cs">
       <DependentUpon>WordsCounter.svc</DependentUpon>
     </Compile>
@@ -73,6 +74,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBModels\DBModels.csproj">
+      <Project>{5d9f9734-b04a-4596-9a7d-6b9059acf98f}</Project>
+      <Name>DBModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityFrameworkWrapper\EntityFrameworkWrapper.csproj">
+      <Project>{b948f7e2-6c3a-4e81-b51f-691cc9fbf653}</Project>
+      <Name>EntityFrameworkWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

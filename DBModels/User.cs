@@ -15,6 +15,8 @@ namespace WordsCountSkyrtaOliinyk.DBModels
         [DataMember]
         private string _lastName;
         [DataMember]
+        private string _login;
+        [DataMember]
         private string _email;
         [DataMember]
         private string _password;
@@ -58,6 +60,19 @@ namespace WordsCountSkyrtaOliinyk.DBModels
                 _lastName = value;
             }
         }
+
+        public string Login
+        {
+            get
+            {
+                return _login;
+            }
+            private set
+            {
+                _login = value;
+            }
+        }
+
         public string Email
         {
             get
