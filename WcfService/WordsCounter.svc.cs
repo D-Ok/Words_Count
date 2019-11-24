@@ -1,33 +1,48 @@
-﻿using System;
+﻿using EntityFrameworkWrapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace WcfService
 {
-    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Service1" в коде, SVC-файле и файле конфигурации.
-    // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы Service1.svc или Service1.svc.cs в обозревателе решений и начните отладку.
-    public class Service1 : IWordsCounter
+    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "WordsCounter" в коде, SVC-файле и файле конфигурации.
+    // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы WordsCounter.svc или WordsCounter.svc.cs в обозревателе решений и начните отладку.
+    public class WordsCounter : IWordsCounter
     {
-        public string GetData(int value)
+        public void AddRequest(Request request)
         {
-            return string.Format("You entered: {0}", value);
+            using (var context = new WordsCountDBContext())
+            {
+                context.Requests.Add(request);
+                context.SaveChanges();
+            }
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public void AddUser(User user)
         {
-            if (composite == null)
+            using (var context = new WordsCountDBContext())
             {
-                throw new ArgumentNullException("composite");
+                context.Users.Add(user);
+                context.SaveChanges();
             }
-            if (composite.BoolValue)
+        }
+
+        public List<Request> GetAllRequests(User user)
+        {
+            using (var context = new WordsCountDBContext())
             {
-                composite.StringValue += "Suffix";
+                return context.Requests.ToList();
             }
-            return composite;
+        }
+
+        public User ValidateUser(string login, string password)
+        {
+            throw new NotImplementedException();
         }
     }
 }
