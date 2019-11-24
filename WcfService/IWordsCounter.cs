@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace WcfService
 {
@@ -14,34 +11,21 @@ namespace WcfService
     {
 
         [OperationContract]
-        string GetData(int value);
+        void AddUser(User user);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        void AddRequest(Request request);
 
-        // TODO: Добавьте здесь операции служб
+        [OperationContract]
+        User ValidateUser(string login, string password);
+
+        [OperationContract]
+        List<Request> GetAllRequests(User user);
+
+
+
     }
 
 
-    // Используйте контракт данных, как показано в примере ниже, чтобы добавить составные типы к операциям служб.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
-    }
+    
 }
