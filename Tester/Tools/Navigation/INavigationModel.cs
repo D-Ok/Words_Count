@@ -5,6 +5,7 @@ namespace Tester.Tools.Navigation
     {
         SignIn,
         SignUp,
+        ShowRequests
     }
 
     interface INavigationModel

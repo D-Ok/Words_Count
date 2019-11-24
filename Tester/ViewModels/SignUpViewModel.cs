@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using Tester.Managers;
 using Tester.Tools;
 using Tester.Tools.Navigation;
@@ -99,27 +97,8 @@ namespace Tester.ViewModels
 
         private async void SignUpImplementation(object obj)
         {
+            NavigationManager.Instance.Navigate(ViewType.ShowRequests);
             //TODO
-            //Person person = null;
-            //LoaderManeger.Instance.ShowLoader();
-            //var result = await Task.Run(() =>
-            //{
-            //    Thread.Sleep(2000);
-            //    try
-            //    {
-            //        person = new Person(Name, Surname, Email, Birthday);
-            //        StationManager.DataStorage.AddPerson(person);
-            //        StationManager.CurrentPerson = person;
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        MessageBox.Show(e.Message);
-            //        return false;
-            //    }
-            //    return true;
-            //});
-            //LoaderManeger.Instance.HideLoader();
-            //if (result && person != null) NavigationManager.Instance.Navigate(ViewType.PersonList, person);
         }
     }
 }

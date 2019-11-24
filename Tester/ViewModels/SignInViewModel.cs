@@ -66,6 +66,7 @@ namespace Tester.ViewModels
         private async void SignInImplementation(object obj)
         {
             //TODO
+            NavigationManager.Instance.Navigate(ViewType.ShowRequests);
             //Person person = null;
             //LoaderManeger.Instance.ShowLoader();
             //var result = await Task.Run(() =>
