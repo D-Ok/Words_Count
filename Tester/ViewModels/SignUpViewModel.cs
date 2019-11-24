@@ -68,7 +68,7 @@ namespace Tester.ViewModels
         }
 
 
-        public RelayCommand<Object> ExitCommand
+        public RelayCommand<Object> BackCommand
         {
             get
             {

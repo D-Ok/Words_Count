@@ -87,19 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBModels\DBModels.csproj">
-<<<<<<< HEAD
-      <Project>{5D9F9734-B04A-4596-9A7D-6B9059ACF98F}</Project>
-      <Name>DBModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntityFrameworkWrapper\EntityFrameworkWrapper.csproj">
-      <Project>{B948F7E2-6C3A-4E81-B51F-691CC9FBF653}</Project>
-      <Name>EntityFrameworkWrapper</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-=======
+
       <Project>{5d9f9734-b04a-4596-9a7d-6b9059acf98f}</Project>
       <Name>DBModels</Name>
     </ProjectReference>
@@ -108,7 +96,6 @@
       <Name>EntityFrameworkWrapper</Name>
     </ProjectReference>
   </ItemGroup>
->>>>>>> 6e469548899536c0f4915c17feed22cc0d2908c8
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
