@@ -9,9 +9,9 @@ namespace EntityFrameworkWrapper
 {
     public class WordsCountDBContext : DbContext
     {
-        //public WordsCountDBContext() : base(@"Server=KIYVMANAGERSURF\ARTSYLPRODUCTS10;Integrated security = true;database=WalletSimulator")
+        // public WordsCountDBContext() : base(@"Server=(localdb)\MSSQLLocalDB;Integrated security = true;database=WordsCount") { }
 
-        public WordsCountDBContext() : base("DB")
+        public WordsCountDBContext() : base("WordsCount")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<WordsCountDBContext, Configuration>());
             Configuration.ProxyCreationEnabled = false;
