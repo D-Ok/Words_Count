@@ -104,5 +104,11 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WcfService\WCFService.csproj">
+      <Project>{e7fef924-1cae-4624-8e11-0db37d22a827}</Project>
+      <Name>WCFService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

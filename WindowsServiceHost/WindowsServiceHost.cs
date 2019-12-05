@@ -18,6 +18,7 @@ namespace WindowsServiceHost
 
         public WindowsServiceHost()
         {
+            ServiceName = CurrentServiceName;
             InitializeComponent();
         }
 
@@ -25,7 +26,7 @@ namespace WindowsServiceHost
         {
             if (_serviceHost != null) _serviceHost.Close();
 
-            string address_HTTP = "http://localhost:9001/MyService";
+            string address_HTTP = "http://localhost:9001/WordsCount";
 
             Uri[] address_base = { new Uri(address_HTTP)};
             _serviceHost = new ServiceHost(typeof(WcfService.WordsCounter), address_base);
