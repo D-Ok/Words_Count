@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModels", "DBModels\DBModels.csproj", "{5D9F9734-B04A-4596-9A7D-6B9059ACF98F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Tester\Client.csproj", "{52092F8E-A404-4B14-AE50-8844F0A2EAD2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7FEF924-1CAE-4624-8E11-0DB37D22A827} = {E7FEF924-1CAE-4624-8E11-0DB37D22A827}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkWrapper", "EntityFrameworkWrapper\EntityFrameworkWrapper.csproj", "{B948F7E2-6C3A-4E81-B51F-691CC9FBF653}"
 EndProject

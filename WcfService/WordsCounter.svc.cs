@@ -32,11 +32,23 @@ namespace WcfService
             }
         }
 
+        public string Answer(string name)
+        {
+            return $"Hello,{name}";
+        }
+
         public List<Request> GetAllRequests(User user)
         {
             using (var context = new WordsCountDBContext())
             {
                 return context.Requests.ToList();
+            }
+        }
+
+        public List<User> GetAllUsers() {
+            using (var context = new WordsCountDBContext())
+            {
+                return context.Users.ToList();
             }
         }
 

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using Tester.Managers;
 using Tester.Tools.Navigation;
@@ -11,6 +13,8 @@ namespace Tester
     /// </summary>
     public partial class MainWindow : Window, IContentOwner
     {
+        //private ContentControl _contentControl;
+
         public ContentControl ContentControl
         {
             get { return _contentControl; }
@@ -18,6 +22,8 @@ namespace Tester
 
         public MainWindow()
         {
+            WordsCountService.WordsCounterClient client = new WordsCountService.WordsCounterClient();
+            Console.WriteLine(client.Answer("Masha"));
             InitializeComponent();
             DataContext = new MainWindowViewModel();
             InitializeApplication();

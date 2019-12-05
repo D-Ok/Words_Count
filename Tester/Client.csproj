@@ -40,6 +40,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +60,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\WordsCountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Managers\BaseViewModel.cs" />
     <Compile Include="Managers\LoaderManager.cs" />
     <Compile Include="Managers\NavigationManager.cs" />
@@ -125,6 +132,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\WordsCountService\Tester.WordsCountService.Request.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WordsCountService\Tester.WordsCountService.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WordsCountService\WordsCounter.wsdl" />
+    <None Include="Connected Services\WordsCountService\WordsCounter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WordsCountService\WordsCounter1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WordsCountService\WordsCounter2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -135,14 +158,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WcfService\WCFService.csproj">
-      <Project>{e7fef924-1cae-4624-8e11-0db37d22a827}</Project>
-      <Name>WCFService</Name>
-    </ProjectReference>
+    <WCFMetadataStorage Include="Connected Services\WordsCountService\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Include="Connected Services\WordsCountService\WordsCounter.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WordsCountService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WordsCountService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WordsCountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

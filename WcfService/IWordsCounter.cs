@@ -11,6 +11,12 @@ namespace WcfService
     {
 
         [OperationContract]
+        List<User> GetAllUsers();
+
+        [OperationContract]
+        string Answer(string name);
+
+        [OperationContract]
         void AddUser(User user);
 
         [OperationContract]

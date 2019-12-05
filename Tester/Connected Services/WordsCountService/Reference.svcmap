@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="23ffd9fc-f782-4f67-b5cd-011c7af3433f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52545/WordsCounter.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WordsCounter.wsdl" MetadataType="Wsdl" ID="cf126d96-0351-46e9-8203-0fdc91afaf21" SourceId="1" SourceUrl="http://localhost:52545/WordsCounter.svc?wsdl" />
+    <MetadataFile FileName="WordsCounter.xsd" MetadataType="Schema" ID="72b33e32-48b9-485e-bb61-6f7acb77230f" SourceId="1" SourceUrl="http://localhost:52545/WordsCounter.svc?xsd=xsd0" />
+    <MetadataFile FileName="WordsCounter1.xsd" MetadataType="Schema" ID="2a38b41f-783f-441c-bff6-c580e60ebf36" SourceId="1" SourceUrl="http://localhost:52545/WordsCounter.svc?xsd=xsd2" />
+    <MetadataFile FileName="WordsCounter2.xsd" MetadataType="Schema" ID="47499f39-6dc4-4f6d-8f06-92db94388d4f" SourceId="1" SourceUrl="http://localhost:52545/WordsCounter.svc?xsd=xsd1" />
+    <MetadataFile FileName="WordsCounter.disco" MetadataType="Disco" ID="728f199c-8059-40ab-a2f7-33ebcc0e1702" SourceId="1" SourceUrl="http://localhost:52545/WordsCounter.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
