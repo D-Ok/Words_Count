@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.ServiceModel;
 using WordsCountSkyrtaOliinyk.DBModels;
@@ -11,9 +11,6 @@ namespace WcfService
     {
 
         [OperationContract]
-        List<User> GetAllUsers();
-
-        [OperationContract]
         string Answer(string name);
 
         [OperationContract]
@@ -23,10 +20,10 @@ namespace WcfService
         void AddRequest(Request request);
 
         [OperationContract]
-        User ValidateUser(string login, string password);
+        User GetUser(string login);
 
         [OperationContract]
-        List<Request> GetAllRequests(User user);
+        IEnumerable<Request> GetAllRequests(User user);
 
 
 

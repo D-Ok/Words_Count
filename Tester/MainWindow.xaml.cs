@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using Tester.Managers;
@@ -13,7 +12,6 @@ namespace Tester
     /// </summary>
     public partial class MainWindow : Window, IContentOwner
     {
-        //private ContentControl _contentControl;
 
         public ContentControl ContentControl
         {

@@ -1,12 +1,7 @@
-﻿using EntityFrameworkWrapper;
-using System;
+﻿using DBModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using WordsCountSkyrtaOliinyk.DBModels;
+
 
 namespace WcfService
 {
@@ -14,22 +9,10 @@ namespace WcfService
     // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы WordsCounter.svc или WordsCounter.svc.cs в обозревателе решений и начните отладку.
     public class WordsCounter : IWordsCounter
     {
-        public void AddRequest(Request request)
-        {
-            using (var context = new WordsCountDBContext())
-            {
-                context.Requests.Add(request);
-                context.SaveChanges();
-            }
-        }
-
+        
         public void AddUser(User user)
         {
-            using (var context = new WordsCountDBContext())
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
+           EntityWrapper.AddUser(user);
         }
 
         public string Answer(string name)
@@ -37,24 +20,21 @@ namespace WcfService
             return $"Hello,{name}";
         }
 
-        public List<Request> GetAllRequests(User user)
+        public IEnumerable<Request> GetAllRequests(User user)
         {
-            using (var context = new WordsCountDBContext())
-            {
-                return context.Requests.ToList();
-            }
+            return EntityWrapper.GetRequests(user.Guid);
         }
 
-        public List<User> GetAllUsers() {
-            using (var context = new WordsCountDBContext())
-            {
-                return context.Users.ToList();
-            }
+
+        public User GetUser(string login)
+        {
+            return EntityWrapper.GetUser(login);
         }
 
-        public User ValidateUser(string login, string password)
+        
+        public void AddRequest(Request request)
         {
-            throw new NotImplementedException();
+            EntityWrapper.AddRequest(request);
         }
     }
 }

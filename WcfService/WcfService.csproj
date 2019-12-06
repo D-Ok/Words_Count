@@ -75,7 +75,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="WordsCounter.svc.cs">
       <DependentUpon>WordsCounter.svc</DependentUpon>
     </Compile>
@@ -87,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBModels\DBModels.csproj">
-
       <Project>{5D9F9734-B04A-4596-9A7D-6B9059ACF98F}</Project>
       <Name>DBModels</Name>
     </ProjectReference>
@@ -99,7 +97,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

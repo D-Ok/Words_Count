@@ -65,7 +65,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\RequestConfigration.cs" />
     <Compile Include="ModelConfigurations\UserConfiguration.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="EntityWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
