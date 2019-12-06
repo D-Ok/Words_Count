@@ -9,7 +9,6 @@ namespace EntityFrameworkWrapper
 {
     public class WordsCountDBContext : DbContext
     {
-        // public WordsCountDBContext() : base(@"Server=(localdb)\MSSQLLocalDB;Integrated security = true;database=WordsCount") { }
 
         public WordsCountDBContext() : base("WordsCount")
         {

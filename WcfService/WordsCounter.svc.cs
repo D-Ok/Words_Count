@@ -12,7 +12,7 @@ namespace WcfService
         
         public void AddUser(User user)
         {
-           EntityWrapper.AddUser(user);
+            EntityWrapper.AddUser(user);
         }
 
         public string Answer(string name)

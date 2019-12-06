@@ -68,6 +68,9 @@
     <Compile Include="Managers\BaseViewModel.cs" />
     <Compile Include="Managers\LoaderManager.cs" />
     <Compile Include="Managers\NavigationManager.cs" />
+    <Compile Include="Tools\Exceptions\InvalidEmailException.cs" />
+    <Compile Include="Tools\Exceptions\InvalidLoginException.cs" />
+    <Compile Include="Tools\Exceptions\InvalidNameAttributeException.cs" />
     <Compile Include="Tools\ILoaderOwner.cs" />
     <Compile Include="Tools\Navigation\BaseNavigationModel.cs" />
     <Compile Include="Tools\Navigation\IContentOwner.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="Tools\PasswordBoxAssitant.cs" />
     <Compile Include="Tools\RelayCommand.cs" />
     <Compile Include="Tools\TextCalculator.cs" />
+    <Compile Include="Tools\Validator.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ShowRequestsViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
@@ -179,5 +183,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -68,7 +68,7 @@ namespace Tester.ViewModels
             //TODO
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
             //Person person = null;
-            //LoaderManeger.Instance.ShowLoader();
+            //LoaderManager.Instance.ShowLoader();
             //var result = await Task.Run(() =>
             //{
             //    Thread.Sleep(2000);
@@ -85,7 +85,7 @@ namespace Tester.ViewModels
             //    }
             //    return true;
             //});
-            //LoaderManeger.Instance.HideLoader();
+            //LoaderManager.Instance.HideLoader();
             //if (result && person != null) NavigationManager.Instance.Navigate(ViewType.PersonList, person);
         }
 

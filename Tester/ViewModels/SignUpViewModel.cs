@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
+using Tester.Tools.Exceptions;
 using Tester.Tools.Navigation;
 
 namespace Tester.ViewModels
 {
-    internal class SignUpViewModel : BaseViewModel
+    internal class SignUpViewModel : BaseViewModel, ILoaderOwner
     {
+        #region Fields
+
         private RelayCommand<object> _backCommand;
         private RelayCommand<object> _signUpCommand;
         private string _name;
@@ -14,6 +19,12 @@ namespace Tester.ViewModels
         private string _email;
         private string _login;
         private string _password;
+        private Visibility _loaderVisibility = Visibility.Hidden;
+        private bool _isControlEnabled = true;
+
+        #endregion
+
+        #region Properties
 
         public string Name
         {
@@ -84,10 +95,32 @@ namespace Tester.ViewModels
             }
         }
 
+        public Visibility LoaderVisibility
+        {
+            get { return _loaderVisibility; }
+            set
+            {
+                _loaderVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool IsControlEnabled {
+            get { return _isControlEnabled; }
+            set
+            {
+                _isControlEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
+
+
         private bool CanSignUpExecute(object obj)
         {
-            return !String.IsNullOrWhiteSpace(_login) && !String.IsNullOrWhiteSpace(_password) && !String.IsNullOrWhiteSpace(_name) 
-                && !String.IsNullOrWhiteSpace(_surname) && !String.IsNullOrWhiteSpace(_email);
+            return !string.IsNullOrWhiteSpace(_login) && !string.IsNullOrWhiteSpace(_password) && !string.IsNullOrWhiteSpace(_name) 
+                && !string.IsNullOrWhiteSpace(_surname) && !string.IsNullOrWhiteSpace(_email);
         }
 
         private void BackImplementation(object obj)
@@ -97,8 +130,54 @@ namespace Tester.ViewModels
 
         private async void SignUpImplementation(object obj)
         {
+            LoaderManager.Instance.ShowLoader();
+            var signedUp = await Task.Run(() =>
+            {
+                try
+                {
+                    Validator.ValidateNameAttribute(Name);
+                }
+                catch (InvalidNameAttributeException e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+                try
+                {
+                    Validator.ValidateNameAttribute(Surname);
+                }
+                catch (InvalidNameAttributeException e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+                try
+                {
+                    Validator.ValidateEmail(Email);
+                }
+                catch (InvalidEmailException e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+                try
+                {
+                    Validator.ValidateLogin(Login);
+                }
+                catch (InvalidLoginException e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+                if (Password.Length < 6)
+                    MessageBox.Show("Password must be at list 6 characters long");
+
+                return true;
+            });
+            LoaderManager.Instance.HideLoader();
+            if (!signedUp)
+                return;
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
-            //TODO
         }
     }
 }

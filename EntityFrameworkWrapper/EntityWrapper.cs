@@ -42,5 +42,9 @@ namespace DBModels
             }
         }
 
+        public static void Main() { 
+
+        }
+
     }
 }
