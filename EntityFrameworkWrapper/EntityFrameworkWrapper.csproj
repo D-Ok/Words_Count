@@ -58,9 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201912071741475_WordsCount.cs" />
-    <Compile Include="Migrations\201912071741475_WordsCount.designer.cs">
-      <DependentUpon>201912071741475_WordsCount.cs</DependentUpon>
+    <Compile Include="Migrations\201912072153442_WordsCount.cs" />
+    <Compile Include="Migrations\201912072153442_WordsCount.designer.cs">
+      <DependentUpon>201912072153442_WordsCount.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\RequestConfigration.cs" />
@@ -81,8 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912071741475_WordsCount.resx">
-      <DependentUpon>201912071741475_WordsCount.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912072153442_WordsCount.resx">
+      <DependentUpon>201912072153442_WordsCount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

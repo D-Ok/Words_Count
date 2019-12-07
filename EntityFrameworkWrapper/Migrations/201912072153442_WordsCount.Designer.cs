@@ -13,7 +13,7 @@ namespace EntityFrameworkWrapper.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201912071741475_WordsCount"; }
+            get { return "201912072153442_WordsCount"; }
         }
         
         string IMigrationMetadata.Source

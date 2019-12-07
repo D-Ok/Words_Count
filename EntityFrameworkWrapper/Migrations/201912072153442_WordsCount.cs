@@ -1,6 +1,5 @@
 ﻿namespace EntityFrameworkWrapper.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class WordsCount : DbMigration
@@ -30,12 +29,13 @@
                         Guid = c.Guid(nullable: false),
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
-                        Login = c.String(nullable: false),
+                        Login = c.String(nullable: false, maxLength: 256),
                         Email = c.String(nullable: false, maxLength: 256),
                         Password = c.String(nullable: false),
                         DOE = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     })
                 .PrimaryKey(t => t.Guid)
+                .Index(t => t.Login, unique: true)
                 .Index(t => t.Email, unique: true);
             
         }
@@ -44,6 +44,7 @@
         {
             DropForeignKey("dbo.Requests", "OwnerGuid", "dbo.Users");
             DropIndex("dbo.Users", new[] { "Email" });
+            DropIndex("dbo.Users", new[] { "Login" });
             DropIndex("dbo.Requests", new[] { "OwnerGuid" });
             DropTable("dbo.Users");
             DropTable("dbo.Requests");

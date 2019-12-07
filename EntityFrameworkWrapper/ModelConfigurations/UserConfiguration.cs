@@ -12,11 +12,12 @@ namespace EntityFrameworkWrapper.ModelConfigurations
             Property(user => user.Guid).HasColumnName("Guid").IsRequired();
             Property(user => user.FirstName).HasColumnName("FirstName").IsRequired();
             Property(user => user.LastName).HasColumnName("LastName").IsRequired();
-            Property(user => user.Login).HasColumnName("Login").IsRequired();
+            Property(user => user.Login).HasColumnName("Login").HasMaxLength(256).IsRequired();
             Property(user => user.Email).HasColumnName("Email").HasMaxLength(256).IsRequired();
             Property(user => user.Password).HasColumnName("Password").IsRequired();
             Property(user => user.DateOfEnter).HasColumnName("DOE").HasColumnType("datetime2").IsRequired();
             HasIndex(ind => ind.Email).IsUnique(true);
+            HasIndex(ind => ind.Login).IsUnique(true);
         }
     }
 }
