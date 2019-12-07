@@ -127,7 +127,12 @@ namespace Tester.ViewModels
                     MessageBox.Show("Password must be at list 6 characters long");
                     return false;
                 }
-
+                //var user = new User(Name, Surname, Email, Login, Password);
+                //if (!ServiceClient.Instance.AddUser(user))
+                //{
+                //    MessageBox.Show("New user mast have unique login and email.");
+                //    return false;
+                //}
                 return true;
             });
             LoaderManager.Instance.HideLoader();

@@ -140,7 +140,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
             _password = encryptPassword(password);
         }
 
-        internal bool CheckPassword(string password)
+        public bool CheckPassword(string password)
         {
             return _password == encryptPassword(password);
         }

@@ -1,9 +1,12 @@
 ﻿
 
 using System;
+using System.Threading.Tasks;
+using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
 using Tester.Tools.Navigation;
+using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace Tester.ViewModels
 {
@@ -65,12 +68,37 @@ namespace Tester.ViewModels
 
         private async void SignInImplementation(object obj)
         {
-            var user = ServiceClient.Instance.GetUser(Login);
-            if (user.Password == Password)
-                UserManager.CurrentUser = user;
-            //TODO show incorrect input parameter message
+            User user = null;
+            LoaderManager.Instance.ShowLoader();
+            var signedIn = await Task.Run(() =>
+            {
+                user = ServiceClient.Instance.GetUser(Login);
+                if (user == null)
+                {
+                    MessageBox.Show("Uncorrect login");
+                    return false;
+                }
+                else
+                {
+                    if (user.CheckPassword(Password))
+                    {
+                        UserManager.CurrentUser = user;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Uncorrect password");
+                        return false;
+                    }
+                       
+                }
+
+            });
+            LoaderManager.Instance.HideLoader();
+            if (!signedIn)
+                return;
+            UserManager.CurrentUser = user;
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
-            
         }
 
     }
