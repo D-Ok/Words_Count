@@ -133,8 +133,9 @@ namespace Tester.ViewModels
             LoaderManager.Instance.HideLoader();
             if (!signedUp)
                 return;
-            var user = new User();
-            ServiceClient.AddUser(new WordsCountService.User(Name,));
+            var user = new User(Name,Surname,Email,Login,Password);
+            ServiceClient.Instance.AddUser(user);
+            UserManager.CurrentUser = user;
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
         }
 

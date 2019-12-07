@@ -115,12 +115,13 @@ namespace WordsCountSkyrtaOliinyk.DBModels
 
         #region Constructor
 
-        public User(string firstName, string lastName, string email, string password) : this()
+        public User(string firstName, string lastName, string email,string login, string password) : this()
         {
             _guid = Guid.NewGuid();
             _firstName = firstName;
             _lastName = lastName;
             _email = email;
+            _login = login;
             _dateOfEnter = DateTime.Today;
             SetPassword(password);
         }

@@ -65,7 +65,10 @@ namespace Tester.ViewModels
 
         private async void SignInImplementation(object obj)
         {
-            //TODO
+            var user = ServiceClient.Instance.GetUser(Login);
+            if (user.Password == Password)
+                UserManager.CurrentUser = user;
+            //TODO show incorrect input parameter message
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
             
         }

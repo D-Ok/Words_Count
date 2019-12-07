@@ -29,22 +29,22 @@ namespace Tester
             Client = new WordsCounterClient();
         }
 
-        internal static void AddUser(User user) 
+        internal void AddUser(User user) 
         {
             Client.AddUser(user);
         }
 
-        internal static void AddRequest(Request request) 
+        internal void AddRequest(Request request) 
         {
             Client.AddRequest(request);
         }
 
-        internal static IEnumerable<Request> GetAllRequests(User user) 
+        internal IEnumerable<Request> GetAllRequests(User user) 
         {
             return Client.GetAllRequests(user);
         }
 
-        public User GetUser(string login)
+        internal User GetUser(string login)
         {
             return Client.GetUser(login);
         }
