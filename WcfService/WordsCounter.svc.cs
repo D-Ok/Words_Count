@@ -1,4 +1,4 @@
-﻿using DBModels;
+﻿using EntityFrameworkWrapper;
 using System.Collections.Generic;
 using WordsCountSkyrtaOliinyk.DBModels;
 

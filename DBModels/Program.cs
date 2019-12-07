@@ -1,32 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace WcfService
 {
     public class Program
     {
+
+        
         private static void Main(string[] args)
         {
-        ////    AddUser(new User("Daryna", "Oliinyk", "fxghjs", "1111"));
-        ////    IEnumerable<User> users = GetAllUsers();
+            //EntityWrapper.AddUser(new User("Daryna", "Oliinyk", "fxghjs", "1111"));
+            //ienumerable<user> users = getallusers();
 
-        ////    foreach (User us in users)
-        ////    {
-        ////        Console.WriteLine(us.ToString());
-        ////    }
+            //foreach (user us in users)
+            //{
+            //    console.writeline(us.tostring());
+            //}
 
-        ////    User u = GetUser("fxghjs", "1111");
-        ////    AddRequest("fxghjs", new Request("dfghjkl", 700, 10, 7));
+            //user u = getuser("fxghjs", "1111");
+            //addrequest("fxghjs", new request("dfghjkl", 700, 10, 7));
 
-        ////    IEnumerable < Request > re= GetRequests(u.Guid);
-        ////    foreach (Request r in re){
-        ////            Console.WriteLine(r.Path+" "+r.StringsNumber);
-        ////        }
+            //ienumerable<request> re = getrequests(u.guid);
+            //foreach (request r in re)
+            //{
+            //    console.writeline(r.path + " " + r.stringsnumber);
+            //}
 
-        //    Console.WriteLine("Demo completed.");
-        //    Console.ReadLine();
+            //console.writeline("demo completed.");
+            //console.readline();
+
         }
+
+      
     }
 }

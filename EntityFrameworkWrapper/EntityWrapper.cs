@@ -1,10 +1,9 @@
-﻿using EntityFrameworkWrapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using WordsCountSkyrtaOliinyk.DBModels;
 
-namespace DBModels
+namespace EntityFrameworkWrapper
 {
     public static class EntityWrapper
     {
@@ -42,8 +41,15 @@ namespace DBModels
             }
         }
 
-        public static void Main() { 
+        public static void Main() {
+            
+           // AddUser(new User("Daryna", "Oliinyk","sdfgh@ghjk.hj", "fxghjs", "1111"));
+           // User us= GetUser("fxghjs");
 
+           //Console.WriteLine(us.ToString());
+            
+           // Console.WriteLine("demo completed.");
+           // Console.ReadLine();
         }
 
     }

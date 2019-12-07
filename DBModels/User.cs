@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace WordsCountSkyrtaOliinyk.DBModels
 {
@@ -134,15 +137,38 @@ namespace WordsCountSkyrtaOliinyk.DBModels
 
         private void SetPassword(string password)
         {
-            //TODO Add encription
-            _password = password;
+            _password = encryptPassword(password);
         }
 
         internal bool CheckPassword(string password)
         {
-            //TODO Compare encrypted passwords
-            return _password == password;
+            return _password == encryptPassword(password);
         }
+
+        private string encryptPassword(string password)
+        {
+            String salt = "LastName" + "date";
+            byte[] salt_byte = new byte[salt.Length];
+            salt_byte = Encoding.UTF8.GetBytes(salt);
+
+            Aes aes = new AesManaged();
+            Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(password, salt_byte);
+            aes.Key = key.GetBytes(aes.KeySize / 8);
+            aes.IV = key.GetBytes(aes.BlockSize / 8);
+
+            using (MemoryStream encryptionStream = new MemoryStream())
+            {
+                using (CryptoStream encrypt = new CryptoStream(encryptionStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                {
+                    byte[] utfD1 = new byte[password.Length];
+                    utfD1 = Encoding.UTF8.GetBytes(password);
+                    encrypt.Write(utfD1, 0, utfD1.Length);
+                    encrypt.Close();
+                    return Convert.ToBase64String(encryptionStream.ToArray());
+                }
+            }
+        }
+
 
         public override string ToString()
         {
