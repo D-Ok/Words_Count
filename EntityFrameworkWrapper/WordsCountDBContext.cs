@@ -1,5 +1,4 @@
-﻿
-using EntityFrameworkWrapper.Migrations;
+﻿using EntityFrameworkWrapper.Migrations;
 using EntityFrameworkWrapper.ModelConfigurations;
 using System.Data.Entity;
 using WordsCountSkyrtaOliinyk.DBModels;
@@ -12,8 +11,8 @@ namespace EntityFrameworkWrapper
 
         public WordsCountDBContext() : base("WordsCount")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<WordsCountDBContext, Configuration>());
-            Configuration.ProxyCreationEnabled = false;
+           Database.SetInitializer(new MigrateDatabaseToLatestVersion<WordsCountDBContext, Configuration>());
+           Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<User> Users { get; set; }

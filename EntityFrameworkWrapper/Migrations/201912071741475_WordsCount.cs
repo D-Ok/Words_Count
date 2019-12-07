@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class TableMigration : DbMigration
+    public partial class WordsCount : DbMigration
     {
         public override void Up()
         {
@@ -30,10 +30,10 @@
                         Guid = c.Guid(nullable: false),
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
-                        Login = c.String(),
+                        Login = c.String(nullable: false),
                         Email = c.String(nullable: false, maxLength: 256),
                         Password = c.String(nullable: false),
-                        DateOfEnter = c.DateTime(nullable: false),
+                        DOE = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     })
                 .PrimaryKey(t => t.Guid)
                 .Index(t => t.Email, unique: true);

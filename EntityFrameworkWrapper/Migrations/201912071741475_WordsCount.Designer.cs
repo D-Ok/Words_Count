@@ -7,13 +7,13 @@ namespace EntityFrameworkWrapper.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class TableMigration : IMigrationMetadata
+    public sealed partial class WordsCount : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TableMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(WordsCount));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911232111232_TableMigration"; }
+            get { return "201912071741475_WordsCount"; }
         }
         
         string IMigrationMetadata.Source
