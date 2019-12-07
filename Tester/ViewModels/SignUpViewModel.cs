@@ -5,6 +5,7 @@ using Tester.Managers;
 using Tester.Tools;
 using Tester.Tools.Exceptions;
 using Tester.Tools.Navigation;
+using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace Tester.ViewModels
 {
@@ -14,11 +15,6 @@ namespace Tester.ViewModels
 
         private RelayCommand<object> _backCommand;
         private RelayCommand<object> _signUpCommand;
-        private string _name;
-        private string _surname;
-        private string _email;
-        private string _login;
-        private string _password;
         private Visibility _loaderVisibility = Visibility.Hidden;
         private bool _isControlEnabled = true;
 
@@ -26,56 +22,12 @@ namespace Tester.ViewModels
 
         #region Properties
 
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                OnPropertyChanged("Name");
-            }
-        }
 
-        public string Surname
-        {
-            get { return _surname; }
-            set
-            {
-                _surname = value;
-                OnPropertyChanged("Surname");
-            }
-        }
-
-        public string Email
-        {
-            get { return _email; }
-            set
-            {
-                _email = value;
-                OnPropertyChanged("Email");
-            }
-        }
-
-        public string Login
-        {
-            get { return _login; }
-            set
-            {
-                _login = value;
-                OnPropertyChanged("Login");
-            }
-        }
-
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged("Password");
-            }
-        }
-
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
 
         public RelayCommand<Object> BackCommand
         {
@@ -113,14 +65,15 @@ namespace Tester.ViewModels
             }
         }
 
+
         #endregion
 
-
+        #region Implementations
 
         private bool CanSignUpExecute(object obj)
         {
-            return !string.IsNullOrWhiteSpace(_login) && !string.IsNullOrWhiteSpace(_password) && !string.IsNullOrWhiteSpace(_name) 
-                && !string.IsNullOrWhiteSpace(_surname) && !string.IsNullOrWhiteSpace(_email);
+            return !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(Name) 
+                && !string.IsNullOrWhiteSpace(Surname) && !string.IsNullOrWhiteSpace(Email);
         }
 
         private void BackImplementation(object obj)
@@ -170,14 +123,22 @@ namespace Tester.ViewModels
                     return false;
                 }
                 if (Password.Length < 6)
+                {
                     MessageBox.Show("Password must be at list 6 characters long");
+                    return false;
+                }
 
                 return true;
             });
             LoaderManager.Instance.HideLoader();
             if (!signedUp)
                 return;
+            var user = new User();
+            ServiceClient.AddUser(new WordsCountService.User(Name,));
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
         }
+
+        #endregion
     }
+
 }

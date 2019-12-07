@@ -1,0 +1,56 @@
+﻿using System.Collections.Generic;
+using Tester.WordsCountService;
+using WordsCountSkyrtaOliinyk.DBModels;
+
+namespace Tester
+{
+    internal class ServiceClient
+    {
+        private static ServiceClient _instance;
+        private static readonly  object Locker = new object();
+
+        internal static ServiceClient Instance 
+        { 
+            get 
+            {
+                if (_instance != null)
+                    return _instance;
+                lock (Locker)
+                {
+                    return _instance ?? (_instance = new ServiceClient());
+                }
+            } 
+        }
+
+        public static WordsCounterClient Client { get; private set; }
+
+        private ServiceClient() 
+        {
+            Client = new WordsCounterClient();
+        }
+
+        internal static void AddUser(User user) 
+        {
+            Client.AddUser(user);
+        }
+
+        internal static void AddRequest(Request request) 
+        {
+            Client.AddRequest(request);
+        }
+
+        internal static IEnumerable<Request> GetAllRequests(User user) 
+        {
+            return Client.GetAllRequests(user);
+        }
+
+        public User GetUser(string login)
+        {
+            return Client.GetUser(login);
+        }
+
+
+
+
+    }
+}
