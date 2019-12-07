@@ -1,6 +1,4 @@
-﻿
-
-using System.Windows;
+﻿using System.Windows;
 using Tester.Tools.Navigation;
 
 namespace Tester.Managers

@@ -68,6 +68,7 @@
     <Compile Include="Managers\BaseViewModel.cs" />
     <Compile Include="Managers\LoaderManager.cs" />
     <Compile Include="Managers\NavigationManager.cs" />
+    <Compile Include="ServiceClient.cs" />
     <Compile Include="Tools\Exceptions\InvalidEmailException.cs" />
     <Compile Include="Tools\Exceptions\InvalidLoginException.cs" />
     <Compile Include="Tools\Exceptions\InvalidNameAttributeException.cs" />
@@ -137,12 +138,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\WordsCountService\Tester.WordsCountService.Request.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WordsCountService\Tester.WordsCountService.User.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\WordsCountService\WordsCounter.wsdl" />
     <None Include="Connected Services\WordsCountService\WordsCounter.xsd">
       <SubType>Designer</SubType>
@@ -154,6 +149,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\WordsCountSkyrtaOliinyk.DBModels.Request.datasource" />
+    <None Include="Properties\DataSources\WordsCountSkyrtaOliinyk.DBModels.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -183,6 +180,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DBModels\DBModels.csproj">
+      <Project>{5D9F9734-B04A-4596-9A7D-6B9059ACF98F}</Project>
+      <Name>DBModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

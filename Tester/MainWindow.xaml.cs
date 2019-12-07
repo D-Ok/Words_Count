@@ -20,8 +20,6 @@ namespace Tester
 
         public MainWindow()
         {
-            WordsCountService.WordsCounterClient client = new WordsCountService.WordsCounterClient();
-            Console.WriteLine(client.Answer("Masha"));
             InitializeComponent();
             DataContext = new MainWindowViewModel();
             InitializeApplication();

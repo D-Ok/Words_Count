@@ -9,333 +9,11 @@
 //------------------------------------------------------------------------------
 
 namespace Tester.WordsCountService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime _dateOfEnterField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _emailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _firstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid _guidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _lastNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _loginField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _passwordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tester.WordsCountService.Request[] _requestsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime _dateOfEnter {
-            get {
-                return this._dateOfEnterField;
-            }
-            set {
-                if ((this._dateOfEnterField.Equals(value) != true)) {
-                    this._dateOfEnterField = value;
-                    this.RaisePropertyChanged("_dateOfEnter");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _email {
-            get {
-                return this._emailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._emailField, value) != true)) {
-                    this._emailField = value;
-                    this.RaisePropertyChanged("_email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _firstName {
-            get {
-                return this._firstNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._firstNameField, value) != true)) {
-                    this._firstNameField = value;
-                    this.RaisePropertyChanged("_firstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid _guid {
-            get {
-                return this._guidField;
-            }
-            set {
-                if ((this._guidField.Equals(value) != true)) {
-                    this._guidField = value;
-                    this.RaisePropertyChanged("_guid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _lastName {
-            get {
-                return this._lastNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._lastNameField, value) != true)) {
-                    this._lastNameField = value;
-                    this.RaisePropertyChanged("_lastName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _login {
-            get {
-                return this._loginField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._loginField, value) != true)) {
-                    this._loginField = value;
-                    this.RaisePropertyChanged("_login");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _password {
-            get {
-                return this._passwordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._passwordField, value) != true)) {
-                    this._passwordField = value;
-                    this.RaisePropertyChanged("_password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tester.WordsCountService.Request[] _requests {
-            get {
-                return this._requestsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._requestsField, value) != true)) {
-                    this._requestsField = value;
-                    this.RaisePropertyChanged("_requests");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Request", Namespace="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class Request : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long _charsNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime _dateOfRequestField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid _guidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tester.WordsCountService.User _ownerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid _ownerGuidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _pathField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int _stringsNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int _wordsNumberField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long _charsNumber {
-            get {
-                return this._charsNumberField;
-            }
-            set {
-                if ((this._charsNumberField.Equals(value) != true)) {
-                    this._charsNumberField = value;
-                    this.RaisePropertyChanged("_charsNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime _dateOfRequest {
-            get {
-                return this._dateOfRequestField;
-            }
-            set {
-                if ((this._dateOfRequestField.Equals(value) != true)) {
-                    this._dateOfRequestField = value;
-                    this.RaisePropertyChanged("_dateOfRequest");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid _guid {
-            get {
-                return this._guidField;
-            }
-            set {
-                if ((this._guidField.Equals(value) != true)) {
-                    this._guidField = value;
-                    this.RaisePropertyChanged("_guid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tester.WordsCountService.User _owner {
-            get {
-                return this._ownerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._ownerField, value) != true)) {
-                    this._ownerField = value;
-                    this.RaisePropertyChanged("_owner");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid _ownerGuid {
-            get {
-                return this._ownerGuidField;
-            }
-            set {
-                if ((this._ownerGuidField.Equals(value) != true)) {
-                    this._ownerGuidField = value;
-                    this.RaisePropertyChanged("_ownerGuid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _path {
-            get {
-                return this._pathField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._pathField, value) != true)) {
-                    this._pathField = value;
-                    this.RaisePropertyChanged("_path");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int _stringsNumber {
-            get {
-                return this._stringsNumberField;
-            }
-            set {
-                if ((this._stringsNumberField.Equals(value) != true)) {
-                    this._stringsNumberField = value;
-                    this.RaisePropertyChanged("_stringsNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int _wordsNumber {
-            get {
-                return this._wordsNumberField;
-            }
-            set {
-                if ((this._wordsNumberField.Equals(value) != true)) {
-                    this._wordsNumberField = value;
-                    this.RaisePropertyChanged("_wordsNumber");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WordsCountService.IWordsCounter")]
     public interface IWordsCounter {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetAllUsers", ReplyAction="http://tempuri.org/IWordsCounter/GetAllUsersResponse")]
-        Tester.WordsCountService.User[] GetAllUsers();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetAllUsers", ReplyAction="http://tempuri.org/IWordsCounter/GetAllUsersResponse")]
-        System.Threading.Tasks.Task<Tester.WordsCountService.User[]> GetAllUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/Answer", ReplyAction="http://tempuri.org/IWordsCounter/AnswerResponse")]
         string Answer(string name);
@@ -344,28 +22,28 @@ namespace Tester.WordsCountService {
         System.Threading.Tasks.Task<string> AnswerAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/AddUser", ReplyAction="http://tempuri.org/IWordsCounter/AddUserResponse")]
-        void AddUser(Tester.WordsCountService.User user);
+        void AddUser(WordsCountSkyrtaOliinyk.DBModels.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/AddUser", ReplyAction="http://tempuri.org/IWordsCounter/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(Tester.WordsCountService.User user);
+        System.Threading.Tasks.Task AddUserAsync(WordsCountSkyrtaOliinyk.DBModels.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/AddRequest", ReplyAction="http://tempuri.org/IWordsCounter/AddRequestResponse")]
-        void AddRequest(Tester.WordsCountService.Request request);
+        void AddRequest(WordsCountSkyrtaOliinyk.DBModels.Request request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/AddRequest", ReplyAction="http://tempuri.org/IWordsCounter/AddRequestResponse")]
-        System.Threading.Tasks.Task AddRequestAsync(Tester.WordsCountService.Request request);
+        System.Threading.Tasks.Task AddRequestAsync(WordsCountSkyrtaOliinyk.DBModels.Request request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/ValidateUser", ReplyAction="http://tempuri.org/IWordsCounter/ValidateUserResponse")]
-        Tester.WordsCountService.User ValidateUser(string login, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetUser", ReplyAction="http://tempuri.org/IWordsCounter/GetUserResponse")]
+        WordsCountSkyrtaOliinyk.DBModels.User GetUser(string login);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/ValidateUser", ReplyAction="http://tempuri.org/IWordsCounter/ValidateUserResponse")]
-        System.Threading.Tasks.Task<Tester.WordsCountService.User> ValidateUserAsync(string login, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetAllRequests", ReplyAction="http://tempuri.org/IWordsCounter/GetAllRequestsResponse")]
-        Tester.WordsCountService.Request[] GetAllRequests(Tester.WordsCountService.User user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetUser", ReplyAction="http://tempuri.org/IWordsCounter/GetUserResponse")]
+        System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.User> GetUserAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetAllRequests", ReplyAction="http://tempuri.org/IWordsCounter/GetAllRequestsResponse")]
-        System.Threading.Tasks.Task<Tester.WordsCountService.Request[]> GetAllRequestsAsync(Tester.WordsCountService.User user);
+        WordsCountSkyrtaOliinyk.DBModels.Request[] GetAllRequests(WordsCountSkyrtaOliinyk.DBModels.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetAllRequests", ReplyAction="http://tempuri.org/IWordsCounter/GetAllRequestsResponse")]
+        System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.Request[]> GetAllRequestsAsync(WordsCountSkyrtaOliinyk.DBModels.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -395,14 +73,6 @@ namespace Tester.WordsCountService {
                 base(binding, remoteAddress) {
         }
         
-        public Tester.WordsCountService.User[] GetAllUsers() {
-            return base.Channel.GetAllUsers();
-        }
-        
-        public System.Threading.Tasks.Task<Tester.WordsCountService.User[]> GetAllUsersAsync() {
-            return base.Channel.GetAllUsersAsync();
-        }
-        
         public string Answer(string name) {
             return base.Channel.Answer(name);
         }
@@ -411,35 +81,35 @@ namespace Tester.WordsCountService {
             return base.Channel.AnswerAsync(name);
         }
         
-        public void AddUser(Tester.WordsCountService.User user) {
+        public void AddUser(WordsCountSkyrtaOliinyk.DBModels.User user) {
             base.Channel.AddUser(user);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(Tester.WordsCountService.User user) {
+        public System.Threading.Tasks.Task AddUserAsync(WordsCountSkyrtaOliinyk.DBModels.User user) {
             return base.Channel.AddUserAsync(user);
         }
         
-        public void AddRequest(Tester.WordsCountService.Request request) {
+        public void AddRequest(WordsCountSkyrtaOliinyk.DBModels.Request request) {
             base.Channel.AddRequest(request);
         }
         
-        public System.Threading.Tasks.Task AddRequestAsync(Tester.WordsCountService.Request request) {
+        public System.Threading.Tasks.Task AddRequestAsync(WordsCountSkyrtaOliinyk.DBModels.Request request) {
             return base.Channel.AddRequestAsync(request);
         }
         
-        public Tester.WordsCountService.User ValidateUser(string login, string password) {
-            return base.Channel.ValidateUser(login, password);
+        public WordsCountSkyrtaOliinyk.DBModels.User GetUser(string login) {
+            return base.Channel.GetUser(login);
         }
         
-        public System.Threading.Tasks.Task<Tester.WordsCountService.User> ValidateUserAsync(string login, string password) {
-            return base.Channel.ValidateUserAsync(login, password);
+        public System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.User> GetUserAsync(string login) {
+            return base.Channel.GetUserAsync(login);
         }
         
-        public Tester.WordsCountService.Request[] GetAllRequests(Tester.WordsCountService.User user) {
+        public WordsCountSkyrtaOliinyk.DBModels.Request[] GetAllRequests(WordsCountSkyrtaOliinyk.DBModels.User user) {
             return base.Channel.GetAllRequests(user);
         }
         
-        public System.Threading.Tasks.Task<Tester.WordsCountService.Request[]> GetAllRequestsAsync(Tester.WordsCountService.User user) {
+        public System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.Request[]> GetAllRequestsAsync(WordsCountSkyrtaOliinyk.DBModels.User user) {
             return base.Channel.GetAllRequestsAsync(user);
         }
     }
