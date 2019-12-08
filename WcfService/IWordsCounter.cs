@@ -29,8 +29,6 @@ namespace WcfService
         [OperationContract]
         IEnumerable<Request> GetAllRequests(User user);
 
-
-
     }
 
 
