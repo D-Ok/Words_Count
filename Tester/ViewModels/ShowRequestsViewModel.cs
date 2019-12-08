@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
 using Tester.Tools.Navigation;
@@ -15,9 +19,21 @@ namespace Tester.ViewModels
         private RelayCommand<object> _newRequestCommand;
         private RelayCommand<object> _logOutCommand;
 
+        private string _fileName;
+
         #endregion
 
         #region Properties
+        public string FileName
+        {
+            get { return _fileName; }
+            set
+            {
+                _fileName = value;
+                OnPropertyChanged("FileName");
+            }
+        }
+
 
         public ObservableCollection<Request> Requests
         {
@@ -48,7 +64,7 @@ namespace Tester.ViewModels
 
         #endregion
 
-        #region Implementation
+        #region Implementations
 
         internal ShowRequestsViewModel()
         {
@@ -63,7 +79,35 @@ namespace Tester.ViewModels
 
         private void NewRequestImplementation(object obj)
         {
-            NavigationManager.Instance.Navigate(ViewType.CreateRequest);
+            var fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == true)
+            {
+                var extension = Path.GetExtension(fileDialog.FileName);
+
+                if (extension != ".txt")
+                {
+                    MessageBox.Show("Wrong file format! You can download only .txt files");
+                    return;
+                }
+
+                FileName = fileDialog.FileName;
+                PerformAnalysis();
+            }
+        }
+
+
+        private async void PerformAnalysis() {
+            LoaderManager.Instance.ShowLoader();
+            await Task.Run(() =>
+            {
+                string fileText = File.ReadAllText(FileName);
+                TextCalculator.Calculate(fileText, out int lines, out int words, out int symbols);
+                MessageBox.Show($"File: {FileName} \nLines: {lines} Words: {words} Symbols: {symbols}");
+            });
+            LoaderManager.Instance.HideLoader();
+
+            //NavigationManager.Instance.Navigate(ViewType.CreateRequest);
+
         }
 
         private void LogOutImplementation(object obj)

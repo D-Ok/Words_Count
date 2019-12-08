@@ -29,9 +29,9 @@ namespace Tester
             Client = new WordsCounterClient();
         }
 
-        internal void AddUser(User user) 
+        internal bool AddUser(User user) 
         {
-            Client.AddUser(user);
+            return Client.AddUser(user);
         }
 
         internal void AddRequest(Request request) 

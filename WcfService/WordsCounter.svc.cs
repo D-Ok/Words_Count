@@ -10,9 +10,9 @@ namespace WcfService
     public class WordsCounter : IWordsCounter
     {
         
-        public void AddUser(User user)
+        public bool AddUser(User user)
         {
-            EntityWrapper.AddUser(user);
+            return EntityWrapper.AddUser(user);
         }
 
         public string Answer(string name)

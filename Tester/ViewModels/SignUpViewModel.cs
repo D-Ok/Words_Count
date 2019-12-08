@@ -9,14 +9,12 @@ using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace Tester.ViewModels
 {
-    internal class SignUpViewModel : BaseViewModel, ILoaderOwner
+    internal class SignUpViewModel : BaseViewModel
     {
         #region Fields
 
         private RelayCommand<object> _backCommand;
         private RelayCommand<object> _signUpCommand;
-        private Visibility _loaderVisibility = Visibility.Hidden;
-        private bool _isControlEnabled = true;
 
         #endregion
 
@@ -47,23 +45,6 @@ namespace Tester.ViewModels
             }
         }
 
-        public Visibility LoaderVisibility
-        {
-            get { return _loaderVisibility; }
-            set
-            {
-                _loaderVisibility = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool IsControlEnabled {
-            get { return _isControlEnabled; }
-            set
-            {
-                _isControlEnabled = value;
-                OnPropertyChanged();
-            }
-        }
 
 
         #endregion
@@ -84,6 +65,7 @@ namespace Tester.ViewModels
         private async void SignUpImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();
+            User user = null;
             var signedUp = await Task.Run(() =>
             {
                 try
@@ -127,19 +109,17 @@ namespace Tester.ViewModels
                     MessageBox.Show("Password must be at list 6 characters long");
                     return false;
                 }
-                //var user = new User(Name, Surname, Email, Login, Password);
-                //if (!ServiceClient.Instance.AddUser(user))
-                //{
-                //    MessageBox.Show("New user mast have unique login and email.");
-                //    return false;
-                //}
+                user = new User(Name, Surname, Email, Login, Password);
+                if (!ServiceClient.Instance.AddUser(user))
+                {
+                   MessageBox.Show("New user must have unique login and email.");
+                   return false;
+                }
                 return true;
             });
             LoaderManager.Instance.HideLoader();
             if (!signedUp)
                 return;
-            var user = new User(Name,Surname,Email,Login,Password);
-            ServiceClient.Instance.AddUser(user);
             UserManager.CurrentUser = user;
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
         }
