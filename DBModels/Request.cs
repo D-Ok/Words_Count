@@ -32,7 +32,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
             set => _guid = value;
         }
 
-        public String Path
+        public string Path
         {
             get => _path;
             set => _path = value;
@@ -40,7 +40,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
 
         public long CharsNumber
         {
-            get => (long)_charsNumber;
+            get => _charsNumber;
             set => _charsNumber = value;
         }
 

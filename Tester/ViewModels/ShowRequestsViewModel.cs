@@ -1,9 +1,6 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Linq;
 using Tester.Managers;
 using Tester.Tools;
 using Tester.Tools.Navigation;
@@ -54,14 +51,9 @@ namespace Tester.ViewModels
         #region Implementations
 
         internal ShowRequestsViewModel()
-        {
-            _requests = new ObservableCollection<Request>();
-
-            foreach (var req in ServiceClient.Instance.GetAllRequests(UserManager.CurrentUser))
-            {
-                _requests.Add(req);
-            }
-
+        { 
+            _requests = new ObservableCollection<Request>(ServiceClient.Instance.GetAllRequests(UserManager.CurrentUser).OrderByDescending(request => request.DateOfRequest));
+            
         }
 
         private void NewRequestImplementation(object obj)

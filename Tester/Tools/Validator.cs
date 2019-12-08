@@ -1,6 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using Tester.Tools.Exceptions;
 
+/// <summary>
+/// Validates user input fields name, email and login
+/// </summary>
+
 namespace Tester.Tools
 {
     internal static class Validator
@@ -9,14 +13,14 @@ namespace Tester.Tools
         private static readonly string NamePattern = @"^[a-zA-Z]+$";
         private static readonly string LoginPattern = @"^(\w)+$";
 
-        public static void ValidateNameAttribute(string name)
+        internal static void ValidateNameAttribute(string name)
         {
             if (!Regex.IsMatch(name, NamePattern))
                 throw new InvalidNameAttributeException(name);
 
         }
 
-        public static void ValidateEmail(string email)
+        internal static void ValidateEmail(string email)
         {
             if (!Regex.IsMatch(email,
                 EmailPattern,
@@ -24,7 +28,7 @@ namespace Tester.Tools
                 throw new InvalidEmailException(email);
         }
 
-        public static void ValidateLogin(string login)
+        internal static void ValidateLogin(string login)
         {
             if (!Regex.IsMatch(login, LoginPattern))
                 throw new InvalidLoginException(login);

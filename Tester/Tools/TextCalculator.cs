@@ -9,7 +9,7 @@ namespace Tester.Tools
         private static readonly char[] WordDelimeters = { ' ', '.', ',', '?', '!', '\r'};
 
 
-    public static void Calculate(string text, out int lines, out int words, out int symbols) {
+    internal static void Calculate(string text, out int lines, out int words, out int symbols) {
             lines = 0;
             words = 0;
             symbols = 0;

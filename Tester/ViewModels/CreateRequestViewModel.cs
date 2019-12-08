@@ -83,7 +83,7 @@ namespace Tester.ViewModels
 
                 if (extension != ".txt")
                 {
-                    MessageBox.Show("Wrong file format! You can download only .txt files");
+                    MessageBox.Show("Wrong file format! You can analyze only .txt files");
                     return;
                 }
 
@@ -112,9 +112,11 @@ namespace Tester.ViewModels
 
                 string fileText = File.ReadAllText(FileName);
                 TextCalculator.Calculate(fileText, out int lines, out int words, out int symbols);
-                Request r = new Request(FileName, symbols, words, lines);
-                r.OwnerGuid = UserManager.CurrentUser.Guid;
-                ServiceClient.Instance.AddRequest(r);
+                Request request = new Request(FileName, symbols, words, lines)
+                {
+                    OwnerGuid = UserManager.CurrentUser.Guid
+                };
+                ServiceClient.Instance.AddRequest(request);
                 MessageBox.Show($"File: {FileName} \nLines: {lines} Words: {words} Symbols: {symbols}");
                 return true;
             });

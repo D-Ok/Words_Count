@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
@@ -27,7 +26,7 @@ namespace Tester.ViewModels
         public string Login { get; set; }
         public string Password { get; set; }
 
-        public RelayCommand<Object> BackCommand
+        public RelayCommand<object> BackCommand
         {
             get
             {
@@ -36,7 +35,7 @@ namespace Tester.ViewModels
             }
         }
 
-        public RelayCommand<Object> SignUpCommand
+        public RelayCommand<object> SignUpCommand
         {
             get
             {
@@ -112,7 +111,7 @@ namespace Tester.ViewModels
                 user = new User(Name, Surname, Email, Login, Password);
                 if (!ServiceClient.Instance.AddUser(user))
                 {
-                   MessageBox.Show("New user must have unique login and email.");
+                   MessageBox.Show("User with this login already exists.");
                    return false;
                 }
                 return true;

@@ -76,7 +76,7 @@ namespace Tester.ViewModels
                 user = ServiceClient.Instance.GetUser(Login);
                 if (user == null)
                 {
-                    MessageBox.Show("Uncorrect login");
+                    MessageBox.Show("User with this login doesn't exist");
                     return false;
                 }
                 else
@@ -88,7 +88,7 @@ namespace Tester.ViewModels
                     }
                     else
                     {
-                        MessageBox.Show("Uncorrect password");
+                        MessageBox.Show("Wrong password");
                         return false;
                     }
                        
