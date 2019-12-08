@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
 
@@ -35,6 +36,7 @@ namespace Tester.ViewModels
         internal MainWindowViewModel()
         {
             LoaderManager.Instance.Initialize(this);
+            Console.WriteLine(IsControlEnabled);
         }
     }
 }

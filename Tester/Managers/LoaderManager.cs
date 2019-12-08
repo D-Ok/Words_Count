@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Tester.Tools;
 
 namespace Tester.Managers
@@ -31,6 +32,8 @@ namespace Tester.Managers
         internal void Initialize(ILoaderOwner loaderOwner)
         {
             _loaderOwner = loaderOwner;
+            Console.WriteLine(_loaderOwner.IsControlEnabled);
+
         }
 
         internal void ShowLoader()

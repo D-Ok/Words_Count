@@ -4,28 +4,18 @@ namespace Tester.Tools.Navigation
 {
     internal abstract class BaseNavigationModel : INavigationModel
     {
-        private readonly IContentOwner _contentOwner;
-        private readonly Dictionary<ViewType, INavigatable> _viewsDictionary;
-
         protected BaseNavigationModel(IContentOwner contentOwner)
         {
-            _contentOwner = contentOwner;
-            _viewsDictionary = new Dictionary<ViewType, INavigatable>();
+            ContentOwner = contentOwner;
+            ViewsDictionary = new Dictionary<ViewType, INavigatable>();
         }
 
-        protected IContentOwner ContentOwner
-        {
-            get { return _contentOwner; }
-        }
+        protected IContentOwner ContentOwner { get; }
 
-        protected Dictionary<ViewType, INavigatable> ViewsDictionary
-        {
-            get { return _viewsDictionary; }
-        }
+        protected Dictionary<ViewType, INavigatable> ViewsDictionary { get; }
 
         public void Navigate(ViewType viewType)
         {
-            // if (!ViewsDictionary.ContainsKey(viewType) || viewType==ViewType.EnterData)
             InitializeView(viewType);
             ContentOwner.ContentControl.Content = ViewsDictionary[viewType];
         }
