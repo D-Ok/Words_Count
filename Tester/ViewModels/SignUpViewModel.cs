@@ -9,14 +9,12 @@ using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace Tester.ViewModels
 {
-    internal class SignUpViewModel : BaseViewModel, ILoaderOwner
+    internal class SignUpViewModel : BaseViewModel
     {
         #region Fields
 
         private RelayCommand<object> _backCommand;
         private RelayCommand<object> _signUpCommand;
-        private Visibility _loaderVisibility = Visibility.Hidden;
-        private bool _isControlEnabled = true;
 
         #endregion
 
@@ -47,23 +45,6 @@ namespace Tester.ViewModels
             }
         }
 
-        public Visibility LoaderVisibility
-        {
-            get { return _loaderVisibility; }
-            set
-            {
-                _loaderVisibility = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool IsControlEnabled {
-            get { return _isControlEnabled; }
-            set
-            {
-                _isControlEnabled = value;
-                OnPropertyChanged();
-            }
-        }
 
 
         #endregion

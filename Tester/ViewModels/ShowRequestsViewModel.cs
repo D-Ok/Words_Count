@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
-using Tester.Tools.Navigation;
 using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace Tester.ViewModels
@@ -17,7 +20,7 @@ namespace Tester.ViewModels
         #endregion
 
         #region Properties
-    
+
         public ObservableCollection<Request> Requests
         {
             get { return _requests; }
@@ -36,10 +39,12 @@ namespace Tester.ViewModels
             }
         }
 
+        public string FilePath { get; private set; }
+
 
         #endregion
 
-        #region Implementation
+        #region Implementations
 
         internal ShowRequestsViewModel()
         {
@@ -54,7 +59,32 @@ namespace Tester.ViewModels
 
         private void NewRequestImplementation(object obj)
         {
-            //NavigationManager.Instance.Navigate(ViewType.);
+            var fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == true)
+            {
+                var extension = Path.GetExtension(fileDialog.FileName);
+
+                if (extension != ".txt")
+                {
+                    MessageBox.Show("Wrong file format! You can download only .txt files");
+                    return;
+                }
+
+                FilePath = fileDialog.FileName;
+                PerformAnaysis();
+            }
+        }
+
+
+        private async void PerformAnaysis() {
+            LoaderManager.Instance.ShowLoader();
+            await Task.Run(() =>
+            {
+                string fileText = File.ReadAllText(FilePath);
+                TextCalculator.Calculate(fileText, out int lines, out int words, out int symbols);
+                MessageBox.Show($"File: {FilePath} \nLines: {lines} Words: {words} Symbols: {symbols}");
+            });
+            LoaderManager.Instance.HideLoader();
         }
 
         #endregion

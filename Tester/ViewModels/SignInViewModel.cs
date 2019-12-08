@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,11 +11,14 @@ namespace Tester.ViewModels
 {
     internal class SignInViewModel : BaseViewModel
     {
+        #region Fields
+
         private RelayCommand<object> _signInCommand;
         private RelayCommand<object> _signUpCommand;
         private string _login;
         private string _password;
 
+        #endregion
         public string Login
         {
             get { return _login; }
@@ -59,7 +60,7 @@ namespace Tester.ViewModels
 
         private bool CanSignInExecute(object obj)
         {
-            return !String.IsNullOrWhiteSpace(_login) && !String.IsNullOrWhiteSpace(_password);
+            return !string.IsNullOrWhiteSpace(_login) && !string.IsNullOrWhiteSpace(_password);
         }
 
         private void SignUpImplementation(object obj)
