@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:52545/WordsCounter.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels" />
+  <xs:import schemaLocation="http://localhost:52545/WordsCounter.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:element name="Answer">
     <xs:complexType>
       <xs:sequence>
@@ -55,17 +56,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateUserDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userGuid" type="q4:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels" minOccurs="0" name="UpdateUserDateResult" nillable="true" type="q5:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllRequests">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels" minOccurs="0" name="user" nillable="true" type="q4:User" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels" minOccurs="0" name="user" nillable="true" type="q6:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllRequestsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels" minOccurs="0" name="GetAllRequestsResult" nillable="true" type="q5:ArrayOfRequest" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WordsCountSkyrtaOliinyk.DBModels" minOccurs="0" name="GetAllRequestsResult" nillable="true" type="q7:ArrayOfRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

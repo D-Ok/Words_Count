@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using WordsCountSkyrtaOliinyk.DBModels;
@@ -21,6 +22,9 @@ namespace WcfService
 
         [OperationContract]
         User GetUser(string login);
+
+        [OperationContract]
+        User UpdateUserDate(Guid userGuid);
 
         [OperationContract]
         IEnumerable<Request> GetAllRequests(User user);

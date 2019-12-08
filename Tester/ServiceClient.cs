@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Tester.WordsCountService;
 using WordsCountSkyrtaOliinyk.DBModels;
 
@@ -49,6 +50,11 @@ namespace Tester
             return Client.GetUser(login);
         }
 
+
+        internal User UpdateUserDate(Guid userGuid)
+        {
+            return Client.UpdateUserDate(userGuid);
+        }
 
 
 

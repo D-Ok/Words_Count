@@ -1,4 +1,5 @@
 ﻿using EntityFrameworkWrapper;
+using System;
 using System.Collections.Generic;
 using WordsCountSkyrtaOliinyk.DBModels;
 
@@ -35,6 +36,11 @@ namespace WcfService
         public void AddRequest(Request request)
         {
             EntityWrapper.AddRequest(request);
+        }
+
+        public User UpdateUserDate(Guid userGuid)
+        {
+            return EntityWrapper.UpdateUserDate(userGuid);
         }
     }
 }

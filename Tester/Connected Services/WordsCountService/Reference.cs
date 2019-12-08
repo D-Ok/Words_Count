@@ -39,6 +39,12 @@ namespace Tester.WordsCountService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetUser", ReplyAction="http://tempuri.org/IWordsCounter/GetUserResponse")]
         System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.User> GetUserAsync(string login);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/UpdateUserDate", ReplyAction="http://tempuri.org/IWordsCounter/UpdateUserDateResponse")]
+        WordsCountSkyrtaOliinyk.DBModels.User UpdateUserDate(System.Guid userGuid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/UpdateUserDate", ReplyAction="http://tempuri.org/IWordsCounter/UpdateUserDateResponse")]
+        System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.User> UpdateUserDateAsync(System.Guid userGuid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/GetAllRequests", ReplyAction="http://tempuri.org/IWordsCounter/GetAllRequestsResponse")]
         WordsCountSkyrtaOliinyk.DBModels.Request[] GetAllRequests(WordsCountSkyrtaOliinyk.DBModels.User user);
         
@@ -103,6 +109,14 @@ namespace Tester.WordsCountService {
         
         public System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.User> GetUserAsync(string login) {
             return base.Channel.GetUserAsync(login);
+        }
+        
+        public WordsCountSkyrtaOliinyk.DBModels.User UpdateUserDate(System.Guid userGuid) {
+            return base.Channel.UpdateUserDate(userGuid);
+        }
+        
+        public System.Threading.Tasks.Task<WordsCountSkyrtaOliinyk.DBModels.User> UpdateUserDateAsync(System.Guid userGuid) {
+            return base.Channel.UpdateUserDateAsync(userGuid);
         }
         
         public WordsCountSkyrtaOliinyk.DBModels.Request[] GetAllRequests(WordsCountSkyrtaOliinyk.DBModels.User user) {

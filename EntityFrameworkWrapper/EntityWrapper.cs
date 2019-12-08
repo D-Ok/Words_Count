@@ -29,15 +29,15 @@ namespace EntityFrameworkWrapper
             using (var context = new WordsCountDBContext())
             {
                 context.Requests.Add(request);
-                //try
-               // {
+                try
+                {
                     context.SaveChanges();
                     return true;
-              //  }
-                //catch (Exception e)
-                //{
-                //    return false;
-                //}
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
         }
         public static User GetUser(String login)
@@ -48,6 +48,24 @@ namespace EntityFrameworkWrapper
                 if (us.Count() > 0)
                     return us.First();
                 else return null;
+            }
+        }
+
+        public static User UpdateUserDate(Guid userGuid)
+        {
+            using (var context = new WordsCountDBContext())
+            {
+                IEnumerable<User> us = context.Users.Where(user => user.Guid == userGuid);
+                if (us.Count() > 0)
+                {
+                    User up = us.First();
+                    up.DateOfEnter = DateTime.Now.ToLocalTime();
+                    context.SaveChanges();
+                    return up;
+                }
+                else
+                    return null;
+                    
             }
         }
 

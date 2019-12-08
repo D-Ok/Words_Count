@@ -109,7 +109,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
             {
                 return _dateOfEnter;
             }
-            private set
+            set
             {
                 _dateOfEnter = value;
             }

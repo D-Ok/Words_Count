@@ -83,6 +83,7 @@ namespace Tester.ViewModels
                 {
                     if (user.CheckPassword(Password))
                     {
+                        user = ServiceClient.Instance.UpdateUserDate(user.Guid);
                         return true;
                     }
                     else
