@@ -94,18 +94,34 @@ namespace Tester.ViewModels
         private async void CountImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();
-            await Task.Run(() =>
+            var count = await Task.Run(() =>
             {
+                var extension = Path.GetExtension(FileName);
+
+                if (extension != ".txt")
+                {
+                    MessageBox.Show("Wrong file format! You can download only .txt files");
+                    return false;
+                }
+
+                if (!File.Exists(FileName))
+                {
+                    MessageBox.Show("File does not exist");
+                    return false;
+                }
+
                 string fileText = File.ReadAllText(FileName);
                 TextCalculator.Calculate(fileText, out int lines, out int words, out int symbols);
                 Request r = new Request(FileName, symbols, words, lines);
                 r.OwnerGuid = UserManager.CurrentUser.Guid;
                 ServiceClient.Instance.AddRequest(r);
                 MessageBox.Show($"File: {FileName} \nLines: {lines} Words: {words} Symbols: {symbols}");
+                return true;
             });
             LoaderManager.Instance.HideLoader();
 
-            NavigationManager.Instance.Navigate(ViewType.ShowRequests);
+            if(count)
+                 NavigationManager.Instance.Navigate(ViewType.ShowRequests);
         }
 
         #endregion
