@@ -29,15 +29,15 @@ namespace EntityFrameworkWrapper
             using (var context = new WordsCountDBContext())
             {
                 context.Requests.Add(request);
-                try
-                {
+                //try
+               // {
                     context.SaveChanges();
                     return true;
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
+              //  }
+                //catch (Exception e)
+                //{
+                //    return false;
+                //}
             }
         }
         public static User GetUser(String login)

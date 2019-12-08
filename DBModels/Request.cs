@@ -80,7 +80,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
         {
             _guid = Guid.NewGuid();
             _path = path;
-            _dateOfRequest = DateTime.Today;
+            _dateOfRequest = DateTime.Now.ToLocalTime();
             _charsNumber = charsNum;
             _wordsNumber = wordsNum;
             _stringsNumber = stringsNum;

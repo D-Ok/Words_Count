@@ -125,7 +125,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
             _lastName = lastName;
             _email = email;
             _login = login;
-            _dateOfEnter = DateTime.Today;
+            _dateOfEnter = DateTime.Now.ToLocalTime();
             SetPassword(password);
         }
 

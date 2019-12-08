@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using Tester.Managers;
@@ -97,7 +98,15 @@ namespace Tester.ViewModels
             LoaderManager.Instance.HideLoader();
             if (!signedIn)
                 return;
+            var r = ServiceClient.Instance.GetAllRequests(user);
+            List<Request> l = new List<Request>();
+            foreach(Request req in r)
+            {
+                l.Add(req);
+            }
+
             UserManager.CurrentUser = user;
+            UserManager.CurrentUser.Requests = l;
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
         }
 

@@ -17,10 +17,10 @@
                   IsSynchronizedWithCurrentItem="True" SelectionUnit="FullRow" CanUserSortColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Path" Binding="{Binding Path}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Number of chars" Binding="{Binding Chars}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Number of words" Binding="{Binding Words}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Number of strings" Binding="{Binding Strings}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Date" Binding="{Binding DOR}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Number of chars" Binding="{Binding CharsNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Number of words" Binding="{Binding WordsNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Number of strings" Binding="{Binding StringsNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date" Binding="{Binding DateOfRequest}" ></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Row="2" Height="30" Width="200" BorderBrush="White" Content="New request"
