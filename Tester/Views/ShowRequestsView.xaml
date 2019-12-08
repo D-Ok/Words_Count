@@ -23,7 +23,9 @@
                 <DataGridTextColumn Header="Date" Binding="{Binding DateOfRequest}" ></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="2" Height="30" Width="200" BorderBrush="White" Content="New request"
+        <Button Grid.Row="2" Height="30" Width="200" BorderBrush="White" Margin="20 0" Content="New request" HorizontalAlignment="Right"
                     VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Command="{Binding NewRequestCommand}"></Button>
+        <Button Grid.Row="2" Height="30" Width="200" BorderBrush="White" Margin="20 0" Content="Log out" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Command="{Binding LogOutCommand}"></Button>
     </Grid>
 </UserControl>

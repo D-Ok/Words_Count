@@ -13,11 +13,12 @@ namespace Tester.ViewModels
         #region Fields
         private ObservableCollection<Request> _requests;
         private RelayCommand<object> _newRequestCommand;
+        private RelayCommand<object> _logOutCommand;
 
         #endregion
 
         #region Properties
-    
+
         public ObservableCollection<Request> Requests
         {
             get { return _requests; }
@@ -36,6 +37,14 @@ namespace Tester.ViewModels
             }
         }
 
+        public RelayCommand<Object> LogOutCommand
+        {
+            get
+            {
+                return _logOutCommand ?? (_logOutCommand =
+                           new RelayCommand<object>(LogOutImplementation));
+            }
+        }
 
         #endregion
 
@@ -55,6 +64,12 @@ namespace Tester.ViewModels
         private void NewRequestImplementation(object obj)
         {
             NavigationManager.Instance.Navigate(ViewType.CreateRequest);
+        }
+
+        private void LogOutImplementation(object obj)
+        {
+            UserManager.CurrentUser = null;
+            NavigationManager.Instance.Navigate(ViewType.SignIn);
         }
 
         #endregion
