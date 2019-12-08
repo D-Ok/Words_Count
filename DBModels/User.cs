@@ -128,7 +128,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
             _dateOfEnter = DateTime.Now.ToLocalTime();
             SetPassword(password);
         }
-        S
+        
         public User()
         {
             _requests = new List<Request>();

@@ -54,7 +54,7 @@ namespace Tester.ViewModels
 
         private void NewRequestImplementation(object obj)
         {
-            //NavigationManager.Instance.Navigate(ViewType.);
+            NavigationManager.Instance.Navigate(ViewType.CreateRequest);
         }
 
         #endregion

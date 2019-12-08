@@ -2,6 +2,7 @@
 using SignInView = Tester.Views.SignInView;
 using SignUpView = Tester.Views.SignUpView;
 using ShowRequestsView = Tester.Views.ShowRequestsView;
+using CreateRequestView = Tester.Views.CreateRequestView;
 
 
 namespace Tester.Tools.Navigation
@@ -26,6 +27,9 @@ namespace Tester.Tools.Navigation
                     break;
                 case ViewType.ShowRequests:
                     ViewsDictionary.Add(viewType, new ShowRequestsView());
+                    break;
+                case ViewType.CreateRequest:
+                    ViewsDictionary.Add(viewType, new CreateRequestView());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(viewType), viewType, null);
