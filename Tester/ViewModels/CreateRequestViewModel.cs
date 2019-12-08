@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
 using Tester.Tools.Navigation;
@@ -71,21 +75,36 @@ namespace Tester.ViewModels
 
         private void BrouseFileImplementation(object obj)
         {
-            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
-
-            Nullable<bool> result = openFileDlg.ShowDialog();
-            if (result == true)
+            var fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == true)
             {
-                FileName = openFileDlg.FileName;
+                var extension = Path.GetExtension(fileDialog.FileName);
+
+                if (extension != ".txt")
+                {
+                    MessageBox.Show("Wrong file format! You can download only .txt files");
+                    return;
+                }
+
+                FileName = fileDialog.FileName;
             }
         }
 
-        private void CountImplementation(object obj)
+        private async void CountImplementation(object obj)
         {
-            //TODO
+            LoaderManager.Instance.ShowLoader();
+            await Task.Run(() =>
+            {
+                string fileText = File.ReadAllText(FileName);
+                TextCalculator.Calculate(fileText, out int lines, out int words, out int symbols);
+                MessageBox.Show($"File: {FileName} \nLines: {lines} Words: {words} Symbols: {symbols}");
+            });
+            LoaderManager.Instance.HideLoader();
+
+            NavigationManager.Instance.Navigate(ViewType.ShowRequests);
         }
 
         #endregion
-    
+
     }
 }

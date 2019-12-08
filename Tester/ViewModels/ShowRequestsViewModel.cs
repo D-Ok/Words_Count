@@ -18,22 +18,9 @@ namespace Tester.ViewModels
         private ObservableCollection<Request> _requests;
         private RelayCommand<object> _newRequestCommand;
         private RelayCommand<object> _logOutCommand;
-
-        private string _fileName;
-
         #endregion
 
         #region Properties
-        public string FileName
-        {
-            get { return _fileName; }
-            set
-            {
-                _fileName = value;
-                OnPropertyChanged("FileName");
-            }
-        }
-
 
         public ObservableCollection<Request> Requests
         {
@@ -79,36 +66,9 @@ namespace Tester.ViewModels
 
         private void NewRequestImplementation(object obj)
         {
-            var fileDialog = new OpenFileDialog();
-            if (fileDialog.ShowDialog() == true)
-            {
-                var extension = Path.GetExtension(fileDialog.FileName);
-
-                if (extension != ".txt")
-                {
-                    MessageBox.Show("Wrong file format! You can download only .txt files");
-                    return;
-                }
-
-                FileName = fileDialog.FileName;
-                PerformAnalysis();
-            }
+            NavigationManager.Instance.Navigate(ViewType.CreateRequest);
         }
 
-
-        private async void PerformAnalysis() {
-            LoaderManager.Instance.ShowLoader();
-            await Task.Run(() =>
-            {
-                string fileText = File.ReadAllText(FileName);
-                TextCalculator.Calculate(fileText, out int lines, out int words, out int symbols);
-                MessageBox.Show($"File: {FileName} \nLines: {lines} Words: {words} Symbols: {symbols}");
-            });
-            LoaderManager.Instance.HideLoader();
-
-            //NavigationManager.Instance.Navigate(ViewType.CreateRequest);
-
-        }
 
         private void LogOutImplementation(object obj)
         {
