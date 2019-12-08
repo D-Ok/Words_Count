@@ -22,10 +22,10 @@ namespace Tester.WordsCountService {
         System.Threading.Tasks.Task<string> AnswerAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/AddUser", ReplyAction="http://tempuri.org/IWordsCounter/AddUserResponse")]
-        void AddUser(WordsCountSkyrtaOliinyk.DBModels.User user);
+        bool AddUser(WordsCountSkyrtaOliinyk.DBModels.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/AddUser", ReplyAction="http://tempuri.org/IWordsCounter/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(WordsCountSkyrtaOliinyk.DBModels.User user);
+        System.Threading.Tasks.Task<bool> AddUserAsync(WordsCountSkyrtaOliinyk.DBModels.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordsCounter/AddRequest", ReplyAction="http://tempuri.org/IWordsCounter/AddRequestResponse")]
         void AddRequest(WordsCountSkyrtaOliinyk.DBModels.Request request);
@@ -81,11 +81,11 @@ namespace Tester.WordsCountService {
             return base.Channel.AnswerAsync(name);
         }
         
-        public void AddUser(WordsCountSkyrtaOliinyk.DBModels.User user) {
-            base.Channel.AddUser(user);
+        public bool AddUser(WordsCountSkyrtaOliinyk.DBModels.User user) {
+            return base.Channel.AddUser(user);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(WordsCountSkyrtaOliinyk.DBModels.User user) {
+        public System.Threading.Tasks.Task<bool> AddUserAsync(WordsCountSkyrtaOliinyk.DBModels.User user) {
             return base.Channel.AddUserAsync(user);
         }
         

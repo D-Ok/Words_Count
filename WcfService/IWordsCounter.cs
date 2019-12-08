@@ -14,7 +14,7 @@ namespace WcfService
         string Answer(string name);
 
         [OperationContract]
-        void AddUser(User user);
+        bool AddUser(User user);
 
         [OperationContract]
         void AddRequest(Request request);

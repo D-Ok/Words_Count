@@ -83,7 +83,6 @@ namespace Tester.ViewModels
                 {
                     if (user.CheckPassword(Password))
                     {
-                        UserManager.CurrentUser = user;
                         return true;
                     }
                     else
@@ -104,7 +103,6 @@ namespace Tester.ViewModels
             {
                 l.Add(req);
             }
-
             UserManager.CurrentUser = user;
             UserManager.CurrentUser.Requests = l;
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
