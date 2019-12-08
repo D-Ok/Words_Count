@@ -16,7 +16,7 @@ namespace Tester.ViewModels
 
         private RelayCommand<object> _backCommand;
         private RelayCommand<object> _countCommand;
-        private RelayCommand<object> _brouseFileCommand;
+        private RelayCommand<object> _browseFileCommand;
 
         private string _fileName;
 
@@ -42,12 +42,12 @@ namespace Tester.ViewModels
             }
         }
 
-        public RelayCommand<Object> BrouseFileCommand
+        public RelayCommand<Object> BrowseFileCommand
         {
             get
             {
-                return _brouseFileCommand ?? (_brouseFileCommand =
-                           new RelayCommand<object>(BrouseFileImplementation));
+                return _browseFileCommand ?? (_browseFileCommand =
+                           new RelayCommand<object>(BrowseFileImplementation));
             }
         }
 
@@ -62,7 +62,7 @@ namespace Tester.ViewModels
 
         #endregion
 
-        #region Implementation
+        #region Implementations
 
         private bool CanCountExecute(object obj)
         {
@@ -74,7 +74,7 @@ namespace Tester.ViewModels
             NavigationManager.Instance.Navigate(ViewType.ShowRequests);
         }
 
-        private void BrouseFileImplementation(object obj)
+        private void BrowseFileImplementation(object obj)
         {
             var fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == true)

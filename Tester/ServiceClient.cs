@@ -23,7 +23,7 @@ namespace Tester
             } 
         }
 
-        public static WordsCounterClient Client { get; private set; }
+        private static WordsCounterClient Client { get; set; }
 
         private ServiceClient() 
         {
@@ -54,6 +54,11 @@ namespace Tester
         internal User UpdateUserDate(Guid userGuid)
         {
             return Client.UpdateUserDate(userGuid);
+        }
+
+        internal void CloseConnection() 
+        {
+            Client.Close();
         }
 
 

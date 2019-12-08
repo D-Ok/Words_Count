@@ -36,7 +36,6 @@ namespace Tester.ViewModels
         internal MainWindowViewModel()
         {
             LoaderManager.Instance.Initialize(this);
-            Console.WriteLine(IsControlEnabled);
         }
     }
 }

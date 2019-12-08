@@ -118,7 +118,7 @@ namespace WordsCountSkyrtaOliinyk.DBModels
 
         #region Constructor
 
-        public User(string firstName, string lastName, string email,string login, string password) : this()
+        public User(string firstName, string lastName, string email, string login, string password) : this()
         {
             _guid = Guid.NewGuid();
             _firstName = firstName;
@@ -137,34 +137,36 @@ namespace WordsCountSkyrtaOliinyk.DBModels
 
         private void SetPassword(string password)
         {
-            _password = encryptPassword(password);
+            _password = EncryptPassword(password);
         }
 
         public bool CheckPassword(string password)
         {
-            return _password == encryptPassword(password);
+            return _password == EncryptPassword(password);
         }
 
-        private string encryptPassword(string password)
+        private string EncryptPassword(string password)
         {
-            String salt = "LastName" + "date";
+            string salt = "LastName" + "date";
             byte[] salt_byte = new byte[salt.Length];
             salt_byte = Encoding.UTF8.GetBytes(salt);
 
-            Aes aes = new AesManaged();
-            Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(password, salt_byte);
-            aes.Key = key.GetBytes(aes.KeySize / 8);
-            aes.IV = key.GetBytes(aes.BlockSize / 8);
-
-            using (MemoryStream encryptionStream = new MemoryStream())
+            using (Aes aes = new AesManaged())
             {
-                using (CryptoStream encrypt = new CryptoStream(encryptionStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(password, salt_byte);
+                aes.Key = key.GetBytes(aes.KeySize / 8);
+                aes.IV = key.GetBytes(aes.BlockSize / 8);
+
+                using (MemoryStream encryptionStream = new MemoryStream())
                 {
-                    byte[] utfD1 = new byte[password.Length];
-                    utfD1 = Encoding.UTF8.GetBytes(password);
-                    encrypt.Write(utfD1, 0, utfD1.Length);
-                    encrypt.Close();
-                    return Convert.ToBase64String(encryptionStream.ToArray());
+                    using (CryptoStream encrypt = new CryptoStream(encryptionStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        byte[] utfD1 = new byte[password.Length];
+                        utfD1 = Encoding.UTF8.GetBytes(password);
+                        encrypt.Write(utfD1, 0, utfD1.Length);
+                        encrypt.Close();
+                        return Convert.ToBase64String(encryptionStream.ToArray());
+                    }
                 }
             }
         }

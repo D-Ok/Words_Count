@@ -5,8 +5,16 @@ namespace Tester.Managers
 {
     internal class NavigationManager
     {
+        #region Fields
+
         private static readonly object Locker = new object();
         private static NavigationManager _instance;
+        private INavigationModel _navigationModel;
+
+        #endregion
+
+
+        #region Properties
 
         internal static NavigationManager Instance
         {
@@ -21,12 +29,15 @@ namespace Tester.Managers
             }
         }
 
-        private INavigationModel _navigationModel;
+
+        #endregion
 
         private NavigationManager()
         {
 
         }
+
+        #region Methods
 
         internal void Initialize(INavigationModel navigationModel)
         {
@@ -38,6 +49,9 @@ namespace Tester.Managers
             if (_navigationModel == null) MessageBox.Show(" " + _navigationModel);
             _navigationModel.Navigate(viewType);
         }
+
+
+        #endregion
 
     }
 }

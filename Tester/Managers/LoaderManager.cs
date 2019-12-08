@@ -1,13 +1,19 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using Tester.Tools;
 
 namespace Tester.Managers
 {
     internal class LoaderManager
     {
+        #region Fields
+
         private static readonly object Locker = new object();
         private static LoaderManager _instance;
+        private ILoaderOwner _loaderOwner;
+
+        #endregion
+
+        #region Properties
 
         internal static LoaderManager Instance
         {
@@ -22,17 +28,21 @@ namespace Tester.Managers
             }
         }
 
-        private ILoaderOwner _loaderOwner;
+        #endregion
+
+
+
 
         private LoaderManager()
         {
 
         }
 
+        #region Methods
+
         internal void Initialize(ILoaderOwner loaderOwner)
         {
             _loaderOwner = loaderOwner;
-            Console.WriteLine(_loaderOwner.IsControlEnabled);
 
         }
 
@@ -46,5 +56,8 @@ namespace Tester.Managers
             _loaderOwner.LoaderVisibility = Visibility.Hidden;
             _loaderOwner.IsControlEnabled = true;
         }
+
+
+        #endregion
     }
 }

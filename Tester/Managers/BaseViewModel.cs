@@ -1,14 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
 
 namespace Tester.Tools
 {
     internal abstract class BaseViewModel : INotifyPropertyChanged
     {
 
-
-        
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
