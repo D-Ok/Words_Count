@@ -6,6 +6,7 @@ using System.Windows;
 using Tester.Managers;
 using Tester.Tools;
 using Tester.Tools.Navigation;
+using WordsCountSkyrtaOliinyk.DBModels;
 
 namespace Tester.ViewModels
 {
@@ -97,6 +98,9 @@ namespace Tester.ViewModels
             {
                 string fileText = File.ReadAllText(FileName);
                 TextCalculator.Calculate(fileText, out int lines, out int words, out int symbols);
+                Request r = new Request(FileName, symbols, words, lines);
+                r.OwnerGuid = UserManager.CurrentUser.Guid;
+                ServiceClient.Instance.AddRequest(r);
                 MessageBox.Show($"File: {FileName} \nLines: {lines} Words: {words} Symbols: {symbols}");
             });
             LoaderManager.Instance.HideLoader();

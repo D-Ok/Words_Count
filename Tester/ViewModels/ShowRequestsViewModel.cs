@@ -57,7 +57,7 @@ namespace Tester.ViewModels
         {
             _requests = new ObservableCollection<Request>();
 
-            foreach (var req in UserManager.CurrentUser.Requests)
+            foreach (var req in ServiceClient.Instance.GetAllRequests(UserManager.CurrentUser))
             {
                 _requests.Add(req);
             }
