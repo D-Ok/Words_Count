@@ -71,12 +71,12 @@ namespace Tester.ViewModels
                 }
 
                 FilePath = fileDialog.FileName;
-                PerformAnaysis();
+                PerformAnalysis();
             }
         }
 
 
-        private async void PerformAnaysis() {
+        private async void PerformAnalysis() {
             LoaderManager.Instance.ShowLoader();
             await Task.Run(() =>
             {
@@ -85,6 +85,9 @@ namespace Tester.ViewModels
                 MessageBox.Show($"File: {FilePath} \nLines: {lines} Words: {words} Symbols: {symbols}");
             });
             LoaderManager.Instance.HideLoader();
+
+            //NavigationManager.Instance.Navigate(ViewType.CreateRequest);
+
         }
 
         #endregion
